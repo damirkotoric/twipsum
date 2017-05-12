@@ -1,0 +1,52 @@
+@import "utilities/reset"
+@import "utilities/settings"
+
+@import "modules/intro"
+@import "modules/generator"
+
+*, *:before, *:after
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+html
+  font-family: Merriweather, Georgia, serif
+  -webkit-font-smoothing: antialiased
+  background: $primary
+  font-size: 13px
+  @media screen and (min-width: $breakpoint1)
+    font-size: 14px
+  @media screen and (min-width: $breakpoint3)
+    font-size: 16px
+
+img
+  max-width: 100%
+
+p
+  line-height: 1.7
+  margin: 2rem 0
+
+a
+  font-weight: 700
+  text-decoration: none
+
+input
+  -webkit-appearance: none
+  border: none
+  font-family: Merriweather, Georgia, serif
+  font-size: 1rem
+  font-weight: 400
+  &[type="search"]
+    background: none
+    border-bottom: 1px solid rgba(white, 0.4%)
+    padding: 0 0 10px 0
+    &::-webkit-input-placeholder
+      color: white
+    &::-moz-placeholder
+      color: white
+    &:-ms-input-placeholder
+      color: white
+    &:-moz-placeholder
+      color: white
+
+  &:focus
+    outline: none

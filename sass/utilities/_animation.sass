@@ -1,0 +1,111 @@
+// keyframes mixin
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
++keyframes(bounceIn)
+  0%
+    opacity: 0
+    transform: scale3d(.9, .9, .9)
+  50%
+    transform: scale3d(1.02, 1.02, 1.02)
+  100%
+    opacity: 1
+    transform: scale3d(1, 1, 1)
+
++keyframes(bounceOut)
+  0%
+    opacity: 1
+    transform: scale3d(1, 1, 1)
+    visibility: visible
+  20%
+    opacity: 1
+    transform: scale3d(1.05, 1.05, 1.05)
+  100%
+    opacity: 0
+    transform: scale3d(.3, .3, .3)
+    visibility: hidden
+
++keyframes(moveIn)
+  0%
+    opacity: 0
+    transform: scale3d(.3, .3, .3)
+  100%
+    opacity: 1
+    transform: scale3d(1, 1, 1)
+
++keyframes(moveOut)
+  0%
+    opacity: 1
+    transform: scale3d(1, 1, 1)
+  100%
+    opacity: 0
+    transform: scale3d(.3, .3, .3)
+
++keyframes(fadeIn)
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
++keyframes(fadeOut)
+  0%
+    opacity: 1
+    visibility: visible
+  100%
+    opacity: 0
+    visibility: hidden
+
++keyframes(bounce)
+  0%
+    transform: scale(0)
+  50%
+    transform: scale(1)
+  100%
+    transform: scale(0)
+
++keyframes(scaleOut)
+  0%
+    transform: scale(0)
+  100%
+    opacity: 0
+    transform: scale(1)
+
++keyframes(slideInDown)
+  0%
+    opacity: 0.5
+    transform: translateY(-50px)
+  100%
+    opacity: 1
+    transform: translateY(0)
+
++keyframes(slideOutUp)
+  0%
+    opacity: 1
+    transform: translateY(0)
+    max-height: 500px
+    visibility: visible
+  99%
+    opacity: 0
+    transform: translateY(-50px)
+    max-height: 0
+  100%
+    opacity: 0
+    max-height: 0
+    visibility: hidden
+    padding: 0
+    margin: 0
+
++keyframes(sk-rotate)
+  100%
+    transform: rotate(360deg)
+
++keyframes(sk-bounce)
+  0%
+    transform: scale(0)
+  50%
+    transform: scale(1)
+  100%
+    transform: scale(0)

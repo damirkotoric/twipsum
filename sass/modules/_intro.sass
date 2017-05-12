@@ -1,0 +1,88 @@
+.intro
+  background: $primary
+  color: white
+  padding: 2rem 2rem 5rem 2rem
+  position: relative
+  @media screen and (min-width: $breakpoint2)
+    min-height: 100vh
+    padding: 2rem 2rem 8rem 2rem
+    position: fixed
+    width: 38.2%
+  @media screen and (min-width: $breakpoint3)
+    padding: 4rem 4rem 8rem 4rem
+
+.intro__logo
+  margin-bottom: 3rem
+  @media screen and (min-width: $breakpoint2)
+    margin-bottom: 6rem
+  > a
+    display: block
+  img:nth-child(1)
+    margin-bottom: 1rem
+    width: 334px
+  img:nth-child(2)
+    opacity: 0.7
+
+.intro__search
+  input
+    color: white
+    margin-bottom: 2rem
+    opacity: 0.5
+    width: 100%
+    @media screen and (min-width: $breakpoint2)
+      margin-bottom: 4rem
+    &:focus
+      &.-not-empty
+        opacity: 1
+
+.intro__suggestions
+  > div
+    margin-bottom: 1rem
+    opacity: 0.5
+
+  li
+    opacity: 0.5
+    &:nth-child(n+4)
+      @media screen and (max-width: $breakpoint2)
+        display: none
+    &.-active
+      opacity: 1
+
+  a
+    color: white
+    display: block
+    padding: 5px 0
+
+    img
+      border: 1px solid white
+      border-radius: 2px
+      height: 22px
+      width: 22px
+      margin-right: 5px
+      vertical-align: middle
+
+.intro__credits
+  bottom: 2rem
+  font-size: 0.7rem
+  margin-top: 3rem
+  opacity: 0.3
+  position: absolute
+  @media screen and (min-width: $breakpoint2)
+    opacity: 0.5
+  @media screen and (min-width: $breakpoint3)
+    bottom: 4rem
+
+  a
+    color: white
+    display: block
+    padding: 5px 0
+
+    img
+      border: 1px solid white
+      border-radius: 2px
+      height: 17px
+      width: 17px
+      margin-right: 3px
+      vertical-align: middle
+      @media screen and (max-width: $breakpoint2)
+        display: none
