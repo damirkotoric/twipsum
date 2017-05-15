@@ -146,8 +146,13 @@ table {
   @media screen and (min-width: 1200px) {
     .generator {
       padding: 5rem 6rem; } }
+  .generator.-is-loading .-loading {
+    display: block; }
+  .generator.-is-loading .-loaded {
+    display: none; }
   .generator .-loading {
     background: rgba(102, 2, 60, 0.05);
+    display: none;
     overflow: hidden;
     position: relative;
     z-index: 0; }

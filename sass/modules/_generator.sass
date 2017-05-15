@@ -8,12 +8,18 @@
   @media screen and (min-width: $breakpoint3)
     padding: 5rem 6rem
 
+  &.-is-loading
+    .-loading
+      display: block
+    .-loaded
+      display: none
+
   .-loading
     background: rgba($primary, 0.05)
+    display: none
     overflow: hidden
     position: relative
     z-index: 0
-
     &::after
       animation-duration: 1s
       animation-fill-mode: forwards
@@ -28,7 +34,6 @@
       top: 0
       width: 100%
       z-index: 0
-
     + div
       position: relative
       z-index: 1

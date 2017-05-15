@@ -1,8 +1,7 @@
 var fs = require("fs")
 
-function load(res, url) {
-  // console.log(url)
-  fs.readFile('./public' + url, function(error, content) {
+function load(req, res) {
+  fs.readFile('./public' + req.url, function(error, content) {
     if (error) {
       console.error(error.message)
     } else {

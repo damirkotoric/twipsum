@@ -9,5 +9,10 @@
   "scripts": {
     "start": "node app.js"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "nconf": "^0.7.1",
+    "twit": "^2.2.5"
+  },
+  "author": "@damirkotoric"
 }
