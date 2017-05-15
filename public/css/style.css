@@ -41,6 +41,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+@keyframes skeletonLoader {
+  0% {
+    transform: translateX(-100%); }
+  100% {
+    transform: translateX(100%); } }
 .intro {
   background: #66023C;
   color: white;
@@ -84,6 +89,7 @@ table {
   margin-bottom: 1rem;
   opacity: 0.5; }
 .intro__suggestions li {
+  margin-bottom: 5px;
   opacity: 0.5; }
   @media screen and (max-width: 800px) {
     .intro__suggestions li:nth-child(n+4) {
@@ -140,9 +146,36 @@ table {
   @media screen and (min-width: 1200px) {
     .generator {
       padding: 5rem 6rem; } }
+  .generator .-loading {
+    background: rgba(102, 2, 60, 0.05);
+    overflow: hidden;
+    position: relative;
+    z-index: 0; }
+    .generator .-loading::after {
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+      animation-name: skeletonLoader;
+      animation-timing-function: linear;
+      background: linear-gradient(to right, rgba(102, 2, 60, 0) 10%, rgba(102, 2, 60, 0.05) 30%, rgba(102, 2, 60, 0) 40%);
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 0; }
+    .generator .-loading + div {
+      position: relative;
+      z-index: 1; }
+  .generator .-loading__masker {
+    background: white;
+    position: absolute;
+    z-index: 1; }
 
 .generator__actions {
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  position: relative; }
   @media screen and (min-width: 800px) {
     .generator__actions {
       margin-bottom: 5rem; } }
@@ -160,6 +193,23 @@ table {
   .generator__actions i {
     font-size: 1.2rem;
     margin-right: 5px; }
+  .generator__actions .-loading {
+    height: 4rem; }
+    .generator__actions .-loading .-loading__masker:nth-child(1) {
+      height: 1.8rem;
+      right: 0;
+      top: 0;
+      width: 50%; }
+    .generator__actions .-loading .-loading__masker:nth-child(2) {
+      height: 1.8rem;
+      right: 0;
+      top: 2.2rem;
+      width: 80%; }
+    .generator__actions .-loading .-loading__masker:nth-child(3) {
+      height: 0.4rem;
+      left: 0;
+      top: 1.8rem;
+      width: 100%; }
 
 .generator__twipsum {
   padding: 2rem 0;
@@ -185,6 +235,15 @@ table {
     @media screen and (min-width: 800px) {
       .generator__twipsum p {
         font-size: 1.2rem; } }
+  .generator__twipsum .-loading {
+    height: 22rem;
+    margin: 2rem 0;
+    position: relative; }
+    .generator__twipsum .-loading .-loading__masker:nth-child(1) {
+      bottom: 0;
+      height: 2rem;
+      right: 0;
+      width: 40%; }
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;

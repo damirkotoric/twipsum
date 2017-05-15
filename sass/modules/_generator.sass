@@ -8,8 +8,39 @@
   @media screen and (min-width: $breakpoint3)
     padding: 5rem 6rem
 
+  .-loading
+    background: rgba($primary, 0.05)
+    overflow: hidden
+    position: relative
+    z-index: 0
+
+    &::after
+      animation-duration: 1s
+      animation-fill-mode: forwards
+      animation-iteration-count: infinite
+      animation-name: skeletonLoader
+      animation-timing-function: linear
+      background: linear-gradient(to right, rgba($primary, 0) 10%, rgba($primary, 0.05) 30%, rgba($primary, 0) 40%)
+      content: ""
+      height: 100%
+      left: 0
+      position: absolute
+      top: 0
+      width: 100%
+      z-index: 0
+
+    + div
+      position: relative
+      z-index: 1
+
+  .-loading__masker
+    background: white
+    position: absolute
+    z-index: 1
+
 .generator__actions
   margin-bottom: 3rem
+  position: relative
   @media screen and (min-width: $breakpoint2)
     margin-bottom: 5rem
   a
@@ -27,6 +58,24 @@
   i
     font-size: 1.2rem
     margin-right: 5px
+
+  .-loading
+    height: 4rem
+    .-loading__masker:nth-child(1)
+      height: 1.8rem
+      right: 0
+      top: 0
+      width: 50%
+    .-loading__masker:nth-child(2)
+      height: 1.8rem
+      right: 0
+      top: 2.2rem
+      width: 80%
+    .-loading__masker:nth-child(3)
+      height: 0.4rem
+      left: 0
+      top: 1.8rem
+      width: 100%
 
 .generator__twipsum
   padding: 2rem 0
@@ -52,3 +101,13 @@
     font-size: 1rem
     @media screen and (min-width: $breakpoint2)
       font-size: 1.2rem
+
+  .-loading
+    height: 22rem
+    margin: 2rem 0
+    position: relative
+    .-loading__masker:nth-child(1)
+      bottom: 0
+      height: 2rem
+      right: 0
+      width: 40%
