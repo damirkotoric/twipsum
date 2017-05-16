@@ -11,8 +11,8 @@ function fetch(req, res, twitterAPI) {
     twitterAPI.getTweetsByHashtag(queryString.replace('hashtag/', '#'), res)
     validQuery = true
   }
-  // We're doing a regular search, which is not supported.
   if (!validQuery) {
+    // We're doing a regular search, which is not supported.
     res.end()
   }
 }
