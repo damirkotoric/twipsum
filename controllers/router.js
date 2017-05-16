@@ -44,19 +44,19 @@ function search(req, res, twitterAPI) {
     // We're only dealing with requests that have no file extensions,
     // and requests that are passing some sort of query parameters.
     // We can therefore assume that this is a search.
-    // if (req.method === "POST" ) {
+    if (req.method === "POST" ) {
       // Post request. Return JSON.
       res.writeHead(200, {'Content-Type': 'application/json'});
       twipsumFetcher.fetch(req, res, twitterAPI)
-    // } else {
-    //   // Get request. Return HTML filled with placeholder values.
-    //   res.writeHead(200, {'Content-Type': 'text/html'});
-    //   renderer.view("_header", {}, res)
-    //   renderer.view("_intro", {}, res)
-    //   renderer.view("_generator", {}, res)
-    //   renderer.view("_footer", {}, res)
-    //   res.end()
-    // }
+    } else {
+      // Get request. Return HTML filled with placeholder values.
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      renderer.view("_header", {}, res)
+      renderer.view("_intro", {}, res)
+      renderer.view("_generator", {}, res)
+      renderer.view("_footer", {}, res)
+      res.end()
+    }
   }
 }
 

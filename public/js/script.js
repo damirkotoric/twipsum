@@ -9,7 +9,14 @@ function ready(fn) {
 ready(function() {
   document.querySelector('#search > input').focus()
   document.querySelector('#search').addEventListener('submit', doSearch)
-  fetchTwipsum("@realDonaldTrump")
+  var pathname = window.location.pathname.replace('/','')
+  if (pathname != '') {
+    // We're dealing with a search
+    fetchTwipsum(pathname)
+  } else {
+    // We're dealing with a home page request
+    fetchTwipsum("@realDonaldTrump")
+  }
 })
 
 function fetchTwipsum(query) {
@@ -18,13 +25,13 @@ function fetchTwipsum(query) {
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
       // Success!
-      var data = JSON.parse(request.responseText);
+      var data = JSON.parse(request.responseText)
       var generatorContainer = document.querySelector('.generator')
       generatorContainer.classList.remove('-is-loading')
       // Extract desired text from JSON feed
       var html = '<p>'
       Array.prototype.forEach.call(data, function(el, i) {
-        if( i != 0 && i % 5 === 0 ) {
+        if (i != 0 && i % 5 === 0) {
           html += formatText(el.full_text)
           html += '</p><p>'
         } else if (i === data.length -1) {
