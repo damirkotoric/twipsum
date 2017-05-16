@@ -19,14 +19,14 @@ function connect() {
 }
 
 function getTweetsByUsername(username, res) {
-  twitConnection.get('statuses/user_timeline', { screen_name: username, count: 100 }, function(err, data, response) {
+  twitConnection.get('statuses/user_timeline', { screen_name: username, tweet_mode: 'extended', count: 100 }, function(err, data, response) {
     res.write(JSON.stringify(data))
     res.end()
   })
 }
 
 function getTweetsByHashtag(hashtag, res) {
-  twitConnection.get('search/tweets', { q: hashtag, count: 100 }, function(err, data, response) {
+  twitConnection.get('search/tweets', { q: hashtag, tweet_mode: 'extended', count: 100 }, function(err, data, response) {
     res.write(JSON.stringify(data))
     res.end()
   })

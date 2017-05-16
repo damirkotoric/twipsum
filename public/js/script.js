@@ -23,10 +23,17 @@ function fetchTwipsum(query) {
       generatorContainer.classList.remove('-is-loading')
       // Extract desired text from JSON feed
       var html = '<p>'
-      Array.prototype.forEach.call(data, function(el, i){
-        html += el.text
+      Array.prototype.forEach.call(data, function(el, i) {
+        if( i != 0 && i % 5 === 0 ) {
+          html += formatText(el.full_text)
+          html += '</p><p>'
+        } else if (i === data.length -1) {
+          html += formatText(el.full_text)
+          html += '</p>'
+        } else {
+          html += formatText(el.full_text) + ' '
+        }
       });
-      html += '</p>'
       // Update UI
       var twipsumShareLink = document.querySelector('#share-twipsum')
       twipsumShareLink.setAttribute('href', query)
@@ -42,6 +49,12 @@ function fetchTwipsum(query) {
     // There was a connection error of some sort
   };
   request.send();
+}
+
+function formatText(text) {
+  // Remove URLs
+  var newText = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
+  return newText
 }
 
 function doSearch(e) {
