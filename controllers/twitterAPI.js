@@ -20,18 +20,32 @@ function connect() {
 
 function getTweetsByUsername(username, res) {
   twitConnection.get('statuses/user_timeline', { screen_name: username, tweet_mode: 'extended', count: 100 }, function(err, data, response) {
-    res.write(JSON.stringify(data))
+    var twipsumJSON = convertTwitterToTwipsumJSON(data)
+    res.write(JSON.stringify(twipsumJSON))
     res.end()
   })
 }
 
-function getTweetsByHashtag(hashtag, res) {
-  twitConnection.get('search/tweets', { q: hashtag, tweet_mode: 'extended', count: 100 }, function(err, data, response) {
-    res.write(JSON.stringify(data))
-    res.end()
+function convertTwitterToTwipsumJSON(twitterJSON) {
+  twipsumJSON = {}
+  var tweets = []
+  Object.keys(twitterJSON).forEach(function (key) {
+    var tweet = twitterJSON[key].full_text
+    // Filter out retweets
+    if (tweet.startsWith('RT')) {
+      return
+    }
+    // Remove URLs
+    tweet = tweet.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '')
+    // Remove new line characters
+    tweet = tweet.trim()
+    // Add new tweet to tweets
+    tweets.push({'tweet': tweet})
   })
+  twipsumJSON['profile_image_url'] = twitterJSON[0].user.profile_image_url
+  twipsumJSON['tweets'] = tweets
+  return twipsumJSON
 }
 
 module.exports.connect = connect
 module.exports.getTweetsByUsername = getTweetsByUsername
-module.exports.getTweetsByHashtag = getTweetsByHashtag

@@ -36,22 +36,22 @@ function fetchTwipsum(query) {
       generatorContainer.classList.remove('-is-loading')
       // Extract desired text from JSON feed
       var html = '<p>'
-      Array.prototype.forEach.call(data, function(el, i) {
+      Array.prototype.forEach.call(data.tweets, function(el, i) {
         if (i != 0 && i % 5 === 0) {
-          html += formatText(el.full_text)
+          html += el.tweet
           html += '</p><p>'
         } else if (i === data.length -1) {
-          html += formatText(el.full_text)
+          html += el.tweet
           html += '</p>'
         } else {
-          html += formatText(el.full_text) + ' '
+          html += el.tweet + ' '
         }
       });
       // Update UI
       var twitterProfile = document.querySelector('#twitter-profile')
       twitterProfile.setAttribute('href', 'https://twitter.com/'+query)
       var twitterProfileImage = document.querySelector('#twitter-profile > img')
-      twitterProfileImage.setAttribute('src', data[0].user.profile_image_url.replace('_normal', ''))
+      twitterProfileImage.setAttribute('src', data.profile_image_url.replace('_normal', ''))
       var twipsumShareLink = document.querySelector('#share-twipsum')
       twipsumShareLink.setAttribute('href', query)
       twipsumShareLink.querySelector('span').innerHTML = 'twipsum.net/' + query
@@ -73,12 +73,6 @@ function fetchTwipsum(query) {
     showError('server error')
   };
   request.send();
-}
-
-function formatText(text) {
-  // Remove URLs
-  var newText = text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
-  return newText
 }
 
 function copyTwipsumToClipboard(e) {
