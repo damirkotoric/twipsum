@@ -348,6 +348,7 @@ p {
   margin: 2rem 0; }
 
 a {
+  color: rgba(102, 2, 60, 0.5);
   font-weight: 700;
   text-decoration: none; }
 

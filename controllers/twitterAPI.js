@@ -20,9 +20,13 @@ function connect() {
 
 function getTweetsByUsername(username, res) {
   twitConnection.get('statuses/user_timeline', { screen_name: username, tweet_mode: 'extended', count: 100 }, function(err, data, response) {
-    var twipsumJSON = convertTwitterToTwipsumJSON(data)
-    res.write(JSON.stringify(twipsumJSON))
-    res.end()
+    if (!err) {
+      var twipsumJSON = convertTwitterToTwipsumJSON(data)
+      res.write(JSON.stringify(twipsumJSON))
+      res.end()
+    } else {
+      res.end()
+    }
   })
 }
 
