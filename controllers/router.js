@@ -21,6 +21,9 @@ function asset(req, res) {
     case '.css':
       res.writeHead(200, {'Content-Type': 'text/css' })
       break
+    case '.txt':
+      res.writeHead(200, {'Content-Type': 'text/plain' })
+      break
     default:
       return
   }
