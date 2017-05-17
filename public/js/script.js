@@ -2,11 +2,15 @@ function ready(fn) {
   if (document.readyState != 'loading'){
     fn();
   } else {
-    document.addEventListener('DOMContentLoaded', fn);
+    document.addEventListener('DOMContentLoaded', fn)
   }
 }
 
 ready(function() {
+  // Attach FastClick
+  var attachFastClick = Origami.fastclick
+  attachFastClick(document.body)
+
   // Listeners
   document.querySelector('#search').addEventListener('submit', doSearch)
   document.querySelector('#copy-twipsum').addEventListener('click', copyTwipsumToClipboard)
