@@ -10,26 +10,28 @@
     <div class="-loaded">
       <!-- Metadata is loaded here. -->
       <a class="generator__profile" id="twitter-profile" href="" target="_blank"><img src="" alt=""></a>
-      <a class="generator__action" id="share-twipsum" href="">
-        <div>
-          <i class="material-icons">share</i> <span>twipsum.net/</span>
-        </div>
-      </a>
-      <a class="generator__action" id="copy-twipsum" href="">
-        <div>
-          <i class="material-icons">content_copy</i> <span>Copy Twipsum text</span>
-        </div>
-        <div>
-          <i class="material-icons">check</i> <span>Copied</span>
-        </div>
-      </a>
+      <div>
+        <a class="generator__action" id="share-twipsum" href="">
+          <div>
+            <i class="material-icons">share</i> <span>twipsum.net/</span>
+          </div>
+        </a>
+        <a class="generator__action" id="copy-twipsum" href="#" data-clipboard-target="#twipsum-content">
+          <div>
+            <i class="material-icons">content_copy</i> <span>Copy Twipsum text</span>
+          </div>
+          <div>
+            <i class="material-icons">check</i> <span>Copied</span>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
   <div class="generator__twipsum">
     <div class="-loading">
       <div class="-loading__masker"></div>
     </div>
-    <div class="-loaded">
+    <div id="twipsum-content" class="-loaded">
       <!-- Generator content is loaded here. -->
     </div>
     <div class="-error -error-not-found">

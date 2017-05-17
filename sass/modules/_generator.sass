@@ -84,10 +84,15 @@
       left: 4rem
       top: 2.2rem
       width: 1rem
+  .-loaded
+    align-items: center
+    display: flex
 
 .generator__profile
-  float: left
+  display: none
   margin: 5px 20px 5px 0
+  @media screen and (min-width: $breakpoint1)
+    display: block
   &:hover
     img
       border: 2px solid rgba($primary, 0.3)
@@ -95,14 +100,15 @@
     background: rgba($primary, 0.2)
     border: 2px solid rgba($primary, 0.2)
     border-radius: 2px
+    display: block
     height: 3.5rem
     transition: border .5s
     width: 3.5rem
 
 .generator__action
+  display: block
   color: $primary
   opacity: 0.6
-  pointer-events: none
   transition: opacity 0.2s
   &:first-child
     margin-top: 0
@@ -152,6 +158,7 @@
     left: 0
     height: 35px
     opacity: 0.2
+    pointer-events: none
     position: absolute
     width: 35px
   &::before

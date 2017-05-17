@@ -80,6 +80,8 @@ table {
   margin-bottom: 2rem;
   opacity: 0.5;
   width: 100%; }
+  .intro__search input::-webkit-search-decoration, .intro__search input::-webkit-search-cancel-button, .intro__search input::-webkit-search-results-button, .intro__search input::-webkit-search-results-decoration {
+    display: none; }
   @media screen and (min-width: 800px) {
     .intro__search input {
       margin-bottom: 4rem; } }
@@ -222,24 +224,31 @@ table {
       left: 4rem;
       top: 2.2rem;
       width: 1rem; }
+  .generator__actions .-loaded {
+    align-items: center;
+    display: flex; }
 
 .generator__profile {
-  float: left;
+  display: none;
   margin: 5px 20px 5px 0; }
+  @media screen and (min-width: 400px) {
+    .generator__profile {
+      display: block; } }
   .generator__profile:hover img {
     border: 2px solid rgba(102, 2, 60, 0.3); }
   .generator__profile img {
     background: rgba(102, 2, 60, 0.2);
     border: 2px solid rgba(102, 2, 60, 0.2);
     border-radius: 2px;
+    display: block;
     height: 3.5rem;
     transition: border 0.5s;
     width: 3.5rem; }
 
 .generator__action {
+  display: block;
   color: #66023C;
   opacity: 0.6;
-  pointer-events: none;
   transition: opacity 0.2s; }
   .generator__action:first-child {
     margin-top: 0; }
@@ -289,6 +298,7 @@ table {
     left: 0;
     height: 35px;
     opacity: 0.2;
+    pointer-events: none;
     position: absolute;
     width: 35px; }
   .generator__twipsum::before {

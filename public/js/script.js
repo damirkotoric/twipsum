@@ -53,7 +53,7 @@ function fetchTwipsum(query) {
       var twitterProfileImage = document.querySelector('#twitter-profile > img')
       twitterProfileImage.setAttribute('src', data.profile_image_url.replace('_normal', ''))
       var twipsumShareLink = document.querySelector('#share-twipsum')
-      twipsumShareLink.setAttribute('href', query)
+      twipsumShareLink.setAttribute('href', '/'+query)
       twipsumShareLink.querySelector('span').innerHTML = 'twipsum.net/' + query
       var twipsumContainer = document.querySelector('.generator__twipsum > .-loaded')
       twipsumContainer.innerHTML = html
@@ -77,25 +77,19 @@ function fetchTwipsum(query) {
 
 function copyTwipsumToClipboard(e) {
   e.preventDefault()
-  var textArea = document.createElement("textarea")
-  textArea.style.opacity = 0
-  var copyTextElement = document.querySelector('.generator__twipsum > .-loaded')
-  var textToCopy = copyTextElement.innerText || copyTextElement.textContent
-  textArea.value = textToCopy
-  document.body.appendChild(textArea)
-  textArea.select()
-  try {
-    var successful = document.execCommand('copy')
+  var clipboard = new Clipboard('#copy-twipsum')
+  clipboard.on('success', function(e) {
+    e.clearSelection()
     document.querySelector('#copy-twipsum > div:nth-child(1)').style.display = 'none'
     document.querySelector('#copy-twipsum > div:nth-child(2)').style.display = 'flex'
     setTimeout( function() {
       document.querySelector('#copy-twipsum > div:nth-child(1)').style.display = 'flex'
       document.querySelector('#copy-twipsum > div:nth-child(2)').style.display = 'none'
     }, 1000)
-  } catch (err) {
-    console.log('Lorem shitsum! Unable to copy text to clipboard.')
-  }
-  document.body.removeChild(textArea)
+  })
+  clipboard.on('error', function(e) {
+    console.log('Lorem shitsum! Unable to copy text to clipboard. ' + e)
+  })
 }
 
 function doSearch(e) {
