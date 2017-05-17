@@ -4,11 +4,25 @@
       <div class="-loading__masker"></div>
       <div class="-loading__masker"></div>
       <div class="-loading__masker"></div>
+      <div class="-loading__masker"></div>
+      <div class="-loading__masker"></div>
     </div>
     <div class="-loaded">
       <!-- Metadata is loaded here. -->
-      <a id="share-twipsum" href=""><i class="material-icons">share</i> <span>twipsum.net/</span></a>
-      <a id="copy-twipsum" href=""><i class="material-icons">content_copy</i> Copy text</a>
+      <a class="generator__profile" id="twitter-profile" href="" target="_blank"><img src="" alt=""></a>
+      <a class="generator__action" id="share-twipsum" href="">
+        <div>
+          <i class="material-icons">share</i> <span>twipsum.net/</span>
+        </div>
+      </a>
+      <a class="generator__action" id="copy-twipsum" href="">
+        <div>
+          <i class="material-icons">content_copy</i> <span>Copy Twipsum text</span>
+        </div>
+        <div>
+          <i class="material-icons">check</i> <span>Copied</span>
+        </div>
+      </a>
     </div>
   </div>
   <div class="generator__twipsum">
@@ -17,6 +31,12 @@
     </div>
     <div class="-loaded">
       <!-- Generator content is loaded here. -->
+    </div>
+    <div class="-error -error-not-found">
+      <p>Lorem Shitsum! No user found by that name. Try a different one, like <a href="/@mynameaborat">@mynameaborat</a>.</p>
+    </div>
+    <div class="-error -error-server">
+      <p>Lorem Shitsum! Something's not right with the connection to the server. Try again. If that doesn't work, whack <a href="https://twitter.com/damirkotoric" target="">@damirkotoric</a> over the head on Twitter, and tell him to fix his damn server!</p>
     </div>
   </div>
 </div>

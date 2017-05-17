@@ -1,16 +1,22 @@
 .generator
   background: white
   min-height: 100vh
-  padding: 2rem 2rem 6rem 2rem
+  padding: 2rem 2rem 8rem 2rem
   @media screen and (min-width: $breakpoint2)
     float: right
     width: 61.8%
   @media screen and (min-width: $breakpoint3)
-    padding: 5rem 6rem
+    padding: 5rem 6rem 12rem
 
   &.-is-loading
     .-loading
       display: block
+    .-loaded
+      display: none
+
+  &.-is-error
+    .-loading
+      display: none
     .-loaded
       display: none
 
@@ -43,44 +49,97 @@
     position: absolute
     z-index: 1
 
+  .-error
+    display: none
+
 .generator__actions
   margin-bottom: 3rem
   position: relative
   @media screen and (min-width: $breakpoint2)
     margin-bottom: 5rem
-  a
-    align-items: center
-    color: $primary
-    display: flex
-    margin: 5px 0
-    opacity: 0.6
-    padding: 5px 0
-    &:first-child
-      margin-top: 0
-    &:last-child
-      margin-bottom: 0
+  .-loading
+    height: 4rem
+    margin-top: 5px
+    .-loading__masker:nth-child(1)
+      height: 1.8rem
+      left: 50%
+      right: 0
+      top: 0
+    .-loading__masker:nth-child(2)
+      height: 1.8rem
+      left: 30%
+      right: 0
+      top: 2.2rem
+    .-loading__masker:nth-child(3)
+      height: 0.4rem
+      left: 4rem
+      right: 0
+      top: 1.8rem
+    .-loading__masker:nth-child(4)
+      height: 1.8rem
+      left: 4rem
+      width: 1rem
+    .-loading__masker:nth-child(5)
+      height: 1.8rem
+      left: 4rem
+      top: 2.2rem
+      width: 1rem
 
+.generator__profile
+  float: left
+  margin: 5px 20px 5px 0
+  &:hover
+    img
+      border: 2px solid rgba($primary, 0.3)
+  img
+    background: rgba($primary, 0.2)
+    border: 2px solid rgba($primary, 0.2)
+    border-radius: 2px
+    height: 3.5rem
+    transition: border .5s
+    width: 3.5rem
+
+.generator__action
+  color: $primary
+  opacity: 0.6
+  pointer-events: none
+  transition: opacity 0.2s
+  &:first-child
+    margin-top: 0
+  &:last-child
+    margin-bottom: 0
+  &:hover
+    opacity: 0.7
+  &:active
+    opacity: 1
+    transition: none
+  &.-disabled
+    pointer-events: none
+  div
+    align-items: center
+    margin: 5px 0
+    padding: 5px 0
+    &:nth-child(1)
+      display: flex
+    &:nth-child(2)
+      display: none
   i
     font-size: 1.2rem
     margin-right: 5px
 
-  .-loading
-    height: 4rem
-    .-loading__masker:nth-child(1)
-      height: 1.8rem
-      right: 0
-      top: 0
-      width: 50%
-    .-loading__masker:nth-child(2)
-      height: 1.8rem
-      right: 0
-      top: 2.2rem
-      width: 80%
-    .-loading__masker:nth-child(3)
-      height: 0.4rem
-      left: 0
-      top: 1.8rem
-      width: 100%
+.generator__actionconfirmation
+  background: $secondary
+  border-radius: 2px
+  color: white
+  display: none
+  font-size: 0.7rem
+  font-weight: 700
+  letter-spacing: 0.5px
+  margin-left: 15px
+  padding: 4px 6px
+  position: relative
+  text-transform: uppercase
+  top: 0px
 
 .generator__twipsum
   padding: 2rem 0

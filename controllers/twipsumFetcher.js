@@ -6,11 +6,12 @@ function fetch(req, res, twitterAPI) {
     twitterAPI.getTweetsByUsername(queryString, res)
     validQuery = true
   }
-  if (queryString.startsWith('hashtag/')) {
-    // We're searching for a hashtag
-    twitterAPI.getTweetsByHashtag(queryString.replace('hashtag/', '#'), res)
-    validQuery = true
-  }
+  // Commenting out. Searching by hashtag perhaps to be implemented in future.
+  // if (queryString.startsWith('hashtag/')) {
+  //   // We're searching for a hashtag
+  //   twitterAPI.getTweetsByHashtag(queryString.replace('hashtag/', '#'), res)
+  //   validQuery = true
+  // }
   if (!validQuery) {
     // We're doing a regular search, which is not supported.
     res.end()

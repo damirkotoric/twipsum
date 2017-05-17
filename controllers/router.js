@@ -60,6 +60,6 @@ function search(req, res, twitterAPI) {
   }
 }
 
+module.exports.asset = asset
 module.exports.home = home
 module.exports.search = search
-module.exports.asset = asset
