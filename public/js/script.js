@@ -7,6 +7,7 @@ function ready(fn) {
 }
 
 ready(function() {
+  document.querySelector('#twitter-profile > img').setAttribute('onerror', 'highResImageNotLoaded(this)')
   // Attach FastClick
   var attachFastClick = Origami.fastclick
   attachFastClick(document.body)
@@ -110,4 +111,14 @@ function showError(errorType) {
   if (errorType === 'server error') {
     document.querySelector('.-error-server').style.display = 'block'
   }
+}
+
+function highResImageNotLoaded(img) {
+  // For some reason the Twitter API isn't returning
+  // The Orange Man's mugshot. So this function handles cases
+  // where the larger profile can't be loaded.
+  var imgSrc = img.getAttribute('src')
+  // Appending _bigger to the end of the image name gives,
+  // weirdly enough, a smaller fallback image.
+  img.setAttribute('src', imgSrc.replace('.jpg', '_bigger.jpg'))
 }
