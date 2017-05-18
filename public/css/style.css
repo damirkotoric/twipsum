@@ -50,7 +50,7 @@ table {
   background: #66023C;
   color: white;
   overflow: hidden;
-  padding: 1rem 1rem 5rem 1rem;
+  padding: 1rem 1rem 2rem 1rem;
   position: relative; }
   @media screen and (min-width: 800px) {
     .intro {
@@ -117,26 +117,34 @@ table {
     vertical-align: middle; }
 
 .intro__credits {
-  bottom: 2rem;
-  font-size: 0.7rem;
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  left: 0;
   margin-top: 3rem;
-  opacity: 0.3;
-  position: absolute; }
+  opacity: 0.3; }
   @media screen and (min-width: 800px) {
     .intro__credits {
-      opacity: 0.5; } }
+      opacity: 0.5;
+      padding: 2rem 2rem 2rem 2rem;
+      position: absolute;
+      width: 100%; } }
   @media screen and (min-width: 1200px) {
     .intro__credits {
-      bottom: 4rem; } }
+      padding: 4rem 4rem 2rem 4rem; } }
   .intro__credits a {
     color: white;
     display: block;
-    padding: 5px 0; }
+    padding: 5px 10px 5px 0; }
     .intro__credits a img {
       border: 1px solid white;
       border-radius: 2px;
-      height: 17px;
-      width: 17px;
+      height: 19px;
+      width: 19px;
       margin-right: 3px;
       vertical-align: middle; }
       @media screen and (max-width: 800px) {
