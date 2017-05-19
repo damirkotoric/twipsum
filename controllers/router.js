@@ -43,7 +43,7 @@ function home(req, res) {
 
 function search(req, res, twitterAPI) {
   var queryString = req.url.replace('/', '')
-  if(!path.extname(req.url) && queryString.length > 0) {
+  if (queryString.startsWith('@')) {
     // We're only dealing with requests that have no file extensions,
     // and requests that are passing some sort of query parameters.
     // We can therefore assume that this is a search.

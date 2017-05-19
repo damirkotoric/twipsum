@@ -31,8 +31,8 @@ ready(function() {
 })
 
 function fetchTwipsum(query) {
-  var request = new XMLHttpRequest();
-  request.open('POST', '/'+query, true);
+  var request = new XMLHttpRequest()
+  request.open('POST', '/'+query, true)
   request.onload = function() {
     if (request.status >= 200 && request.status < 400 && request.responseText) {
       // Success!
