@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "sass": "node-sass -w --output-style compressed -o public/css/ sass/"
+    "sass": "node-sass -w --output-style compressed -o public/css/ src/sass/",
+    "uglify": "mkdir -p public/js && uglifyjs src/js/*.js -m -c -o public/js/app.js"
   },
   "private": true,
   "dependencies": {
@@ -17,6 +18,7 @@
   },
   "author": "@damirkotoric",
   "devDependencies": {
-    "node-sass": "^4.5.3"
+    "node-sass": "^4.5.3",
+    "uglify-js": "^3.0.10"
   }
 }
