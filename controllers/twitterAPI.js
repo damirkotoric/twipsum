@@ -46,7 +46,7 @@ function convertTwitterToTwipsumJSON(twitterJSON) {
     // Add new tweet to tweets
     tweets.push({'tweet': tweet})
   })
-  twipsumJSON['profile_image_url'] = twitterJSON[0].user.profile_image_url
+  twipsumJSON['profile_image_url'] = twitterJSON[0].user.profile_image_url_https
   twipsumJSON['tweets'] = tweets
   return twipsumJSON
 }

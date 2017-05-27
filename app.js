@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000
 twitterAPI.connect()
 
 http.createServer(function (req, res) {
+  router.redirectToHTTPS(req, res)
   router.home(req, res)
   router.asset(req, res)
   router.search(req, res, twitterAPI)
