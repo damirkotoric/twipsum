@@ -2,7 +2,7 @@ const nconf = require('nconf')
 const Twit = require('twit')
 var twitConnection
 
-nconf.file({ file: 'config.json' }).env();
+nconf.file({ file: 'config.json' }).env()
 
 function connect() {
   twitConnection = new Twit({
@@ -18,14 +18,12 @@ function connect() {
   })
 }
 
-function getTweetsByUsername(username, res) {
-  twitConnection.get('statuses/user_timeline', { screen_name: username, tweet_mode: 'extended', count: 100 }, function(err, data, response) {
+function getTweetsByUsername(username, callback) {
+  var results = ''
+  twitConnection.get('statuses/user_timeline', { screen_name: username, tweet_mode: 'extended', count: 100 }, function(err, data, res) {
     if (!err) {
-      var twipsumJSON = convertTwitterToTwipsumJSON(data)
-      res.write(JSON.stringify(twipsumJSON))
-      res.end()
-    } else {
-      res.end()
+      results = JSON.stringify(convertTwitterToTwipsumJSON(data))
+      callback(results)
     }
   })
 }

@@ -1,0 +1,70 @@
+doctype html(lang='en')
+head
+  meta(http-equiv='Content-Type' content='text/html' charset='UTF-8')
+  meta(name='viewport' content='width=device-width')
+  meta(name='description' content="Convert any Twitter user's timeline into lorem ipsum. Get lorem ipsum for Elon Musk, Trump, Queen Elizabeth, and of course @yourtwitterprofile too.")
+  meta(name='twitter:card' content='summary_large_image')
+  meta(name='twitter:creator' content='@damirkotoric')
+  meta(name='twitter:title' content='Twipsum — A Twitter to Lorem Ipsum Generator')
+  meta(name='twitter:description' content="Convert any Twitter user's timeline into lorem ipsum. Get lorem ipsum for Elon Musk, Trump, Queen Elizabeth, and of course @yourtwitterprofile too.")
+  meta(property='twitter:image' content='https://twipsum.net/img/twipsum-preview.png')
+  meta(property='og:title' content='Twipsum — A Twitter to Lorem Ipsum Generator')
+  meta(property='og:url' content='https://twipsum.net')
+  meta(property='og:site_name' content='Twipsum')
+  meta(property='og:image' content='https://twipsum.net/img/twipsum-preview.png')
+  
+  title Twipsum — A Twitter to Lorem Ipsum Generator
+
+  <!-- Cross-browser favicons from realfavicongenerator.net  -->
+  link(rel='apple-touch-icon' sizes='180x180' href='./apple-touch-icon.png')
+  link(rel='icon', type='image/png', sizes='32x32', href='./favicon-32x32.png')
+  link(rel='icon', type='image/png', sizes='16x16', href='./favicon-16x16.png')
+  link(rel='manifest', href='./manifest.json')
+  link(rel='mask-icon', href='./safari-pinned-tab.svg', color='#66023c')
+  meta(name='apple-mobile-web-app-title', content='Twipsum')
+  meta(name='application-name', content='Twipsum')
+  meta(name='theme-color', content='#ffffff')
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Merriweather:400,700&subset=cyrillic,cyrillic-ext,latin-ext', rel='stylesheet')
+  link(rel='stylesheet', href='./css/app.css')
+  script(src='./js/app.js')
+
+body
+  include _intro
+  include _generator
+  block content
+  
+  // Google Analytics
+  script.
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })
+    (window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-99109908-1', 'auto');
+    ga('send', 'pageview');
+  // Mouseflow
+  script(type='text/javascript').
+    window._mfq = window._mfq || [];
+    (function() {
+    var mf = document.createElement("script");
+    mf.type = "text/javascript"; mf.async = true;
+    mf.src = "//cdn.mouseflow.com/projects/2deb8d33-e198-41f9-9f90-e753da1a0594.js";
+    document.getElementsByTagName("head")[0].appendChild(mf);
+    })();
+  // Twitter follow button
+  script.
+    window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+    t._e = [];
+    t.ready = function(f) {
+    t._e.push(f);
+    };
+    return t;
+    }(document, "script", "twitter-wjs"));

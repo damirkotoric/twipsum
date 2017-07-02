@@ -1,6 +1,14 @@
-const http = require('http')
-const router = require('./controllers/router')
+const express = require('express')
+// const bodyParser = require('body-parser')
+const app = express()
 const twitterAPI = require('./controllers/twitterAPI')
+
+// parse incoming requests
+// app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: false }))
+
+// serve static files from /public
+app.use(express.static(__dirname + '/public'))
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -8,10 +16,15 @@ const twitterAPI = require('./controllers/twitterAPI')
 const port = process.env.PORT || 3000
 twitterAPI.connect()
 
-http.createServer(function (req, res) {
-  router.redirectToHTTPS(req, res)
-  router.home(req, res)
-  router.asset(req, res)
-  router.search(req, res, twitterAPI)
-}).listen(port)
-console.log('Server running at http://localhost:3000')
+// view engine setup
+app.set('view engine', 'pug')
+app.set('views', __dirname + '/views')
+
+// include routes
+var routes = require('./routes/index')
+app.use('/', routes)
+
+// listen on port 3000
+app.listen(port, function () {
+  console.log('Express app listening on port 3000')
+});
